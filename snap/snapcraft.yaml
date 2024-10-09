@@ -8,7 +8,7 @@ description: |
   Written with LÖVE
   
 license: MIT
-base: core18
+base: core24
 grade: stable 
 confinement: strict
 compression: lzo
@@ -42,14 +42,31 @@ parts:
     source: https://github.com/kz6fittycent/FlappyBros
     source-type: git
     plugin: nil
+                
+    stage-packages:
+      - freeglut3-dev
+      - libgl1-mesa-dri
+      - libglew2.2
+      - lua-socket
+      - libluajit-5.1-2
+      - libsdl2-2.0-0
+      - libopenal1
+      - libilmbase-dev
+      - libdevil1c2
+      - libogg0
+      - libmpg123-0
+      - libtheora0
+      - libvorbisfile3
+      - libmodplug1
+      - libphysfs1
 
   love0.9.1:
     plugin: dump
-    source: https://bitbucket.org/rude/love/downloads/love_0.9.1_amd64.deb
+    source: https://github.com/love2d/love/releases/download/0.9.1/love_0.9.1_amd64.deb
     
   liblove0.9.1:
     plugin: dump
-    source: https://bitbucket.org/rude/love/downloads/liblove_0.9.1_amd64.deb
+    source: https://github.com/love2d/love/releases/download/0.9.1/liblove_0.9.1_amd64.deb   
     
   lovegame:
     plugin: dump
@@ -58,7 +75,4 @@ parts:
   launcher:
     plugin: dump
     source: ./launcher
-            
-    stage-packages:
-      - freeglut3-dev
-      - love
+      
