@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=FlappyBros
+Comment=Flappy bros is a clone of Flappy bird with graphics
+Exec=flappybros
+Icon=${SNAP}/meta/gui/flappybros.png
+Terminal=false
+Type=Application
+Categories=Game;Simulation;
+GenericName=
+Keywords=game

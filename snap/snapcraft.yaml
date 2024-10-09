@@ -1,0 +1,56 @@
+name: flappybros
+version: 0.1
+summary: Flappy bros is a clone of Flappy bird with graphics
+description: |
+  Flappy bros is a clone of Flappy bird with graphics, musics and sfx import 
+  from the classic Super Mario Bros 3.
+  
+  Written with LÖVE
+  
+license: MIT
+base: core24
+grade: stable 
+confinement: strict
+compression: lzo
+
+website: https://spectrenoir06.itch.io/flappybros
+source-code: https://spectrenoir06.itch.io/flappybros
+contact: https://github.com/kz6fittycent/FlappyBros
+issues: https://github.com/kz6fittycent/FlappyBros/issues
+icon: snap/gui/flappybros.png
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+
+apps:
+  flappybros:
+    extensions:
+      - gnome
+    command: bin/launch_lovegame
+    plugs: 
+      - audio-playback
+      - x11
+      - opengl
+      - unity7
+
+parts:
+  flappybros:
+    source: https://github.com/kz6fittycent/FlappyBros
+    source-type: git
+    plugin: nil
+    
+  lovegame:
+    plugin: dump
+    source: .   
+
+  launcher:
+    plugin: dump
+    source: .
+    organize:
+      'launch_lovegame': 'bin/launch_lovegame'
+            
+    stage-packages:
+      - love
+      - freeglut3-dev
