@@ -14,7 +14,7 @@ confinement: strict
 compression: lzo
 
 website: https://spectrenoir06.itch.io/flappybros
-source-code: https://spectrenoir06.itch.io/flappybros
+source-code: https://github.com/kz6fittycent/FlappyBros
 contact: https://github.com/kz6fittycent/FlappyBros
 issues: https://github.com/kz6fittycent/FlappyBros/issues
 icon: snap/gui/flappybros.png
