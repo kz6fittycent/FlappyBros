@@ -8,7 +8,7 @@ description: |
   Written with LÖVE
   
 license: MIT
-base: core24
+base: core18
 grade: stable 
 confinement: strict
 compression: lzo
@@ -61,3 +61,4 @@ parts:
             
     stage-packages:
       - freeglut3-dev
+      - love
