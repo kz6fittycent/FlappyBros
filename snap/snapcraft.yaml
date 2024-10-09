@@ -1,5 +1,5 @@
 name: flappybros
-version: 0.1
+adopt-info: flappybros
 summary: Flappy bros is a clone of Flappy bird with graphics
 description: |
   Flappy bros is a clone of Flappy bird with graphics, musics and sfx import 
@@ -42,7 +42,11 @@ parts:
     source: https://github.com/kz6fittycent/FlappyBros
     source-type: git
     plugin: nil
-                
+
+    override-pull: |
+      craftctl default
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)" 
+                      
     stage-packages:
       - freeglut3-dev
       - libgl1-mesa-dri
