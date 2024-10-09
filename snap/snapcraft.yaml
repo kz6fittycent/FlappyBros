@@ -30,7 +30,7 @@ apps:
       - gnome
     command: launch_lovegame
     environment:
-      LD_LIBRARY_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"      
+      LD_LIBRARY_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_ON/pulseaudio:$SNAP"      
     plugs: 
       - audio-playback
       - x11
