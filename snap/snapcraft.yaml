@@ -8,7 +8,7 @@ description: |
   Written with LÖVE
   
 license: MIT
-base: core24
+base: core18
 grade: stable 
 confinement: strict
 compression: lzo
@@ -19,16 +19,16 @@ contact: https://github.com/kz6fittycent/FlappyBros
 issues: https://github.com/kz6fittycent/FlappyBros/issues
 icon: snap/gui/flappybros.png
 
-platforms:
-  amd64:
-    build-on: [amd64]
-    build-for: [amd64]
+architectures:
+  - build-on: amd64
 
 apps:
   flappybros:
     extensions:
-      - gnome
-    command: bin/launch_lovegame
+      - gnome-3-34
+    command: launch_lovegame
+    environment:
+      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"      
     plugs: 
       - audio-playback
       - x11
@@ -40,17 +40,37 @@ parts:
     source: https://github.com/kz6fittycent/FlappyBros
     source-type: git
     plugin: nil
+
+  love0.9.1:
+    plugin: dump
+    source: https://bitbucket.org/rude/love/downloads/love_0.9.1_amd64.deb
+    
+  liblove0.9.1:
+    plugin: dump
+    source: https://bitbucket.org/rude/love/downloads/liblove_0.9.1_amd64.deb
     
   lovegame:
     plugin: dump
-    source: .   
+    source: ./lovegame   
 
   launcher:
     plugin: dump
-    source: .
-    organize:
-      'launch_lovegame': 'bin/launch_lovegame'
+    source: ./launcher
             
     stage-packages:
-      - love
+      - libgl1-mesa-dri
+      - libgl1-mesa-glx
+      - libglew1.13
+      - lua-socket
+      - libluajit-5.1-2
+      - libsdl2-2.0-0
+      - libopenal1
+      - libilmbase12
+      - libdevil1c2
+      - libogg0
+      - libmpg123-0
+      - libtheora0
+      - libvorbisfile3
+      - libmodplug1
+      - libphysfs1
       - freeglut3-dev
